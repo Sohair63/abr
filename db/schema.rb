@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615100756) do
+ActiveRecord::Schema.define(version: 20160616091251) do
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "", null: false
@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 20160615100756) do
     t.string   "country",                limit: 10
     t.string   "telephone_number",       limit: 15
     t.string   "mobile_number",          limit: 15
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
