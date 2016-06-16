@@ -6,6 +6,15 @@
   <div class="panel-body">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
       <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
@@ -17,6 +26,38 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :telephone_number %>
+        <%= f.text_field :telephone_number, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mobile_number %>
+        <%= f.text_field :mobile_number, autofocus: true, class: "form-control" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :country %>
+        <%= f.text_field :country, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :company_name %>
+        <%= f.text_field :company_name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website, autofocus: true, class: "form-control" %>
+      </div>
+
       <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
     <% end %>
   </div>
