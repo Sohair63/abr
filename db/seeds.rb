@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Report.delete_all
+Report.create! id: 1, country: "Pakistan", company_name: 'test', price: 100, active: true
+Report.create! id: 2, country: "Pakistan", company_name: 'test', price: 100, active: true
+Report.create! id: 3, country: "Pakistan", company_name: 'test', price: 100, active: true

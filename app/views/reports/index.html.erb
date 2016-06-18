@@ -1,0 +1,9 @@
+<h3 class="text-center">Reports for Sale</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% @reports.each do |report| %>
+      <%= render "report_row", report: report, order_item: @order_item %>
+    <% end %>
+  </div>
+</div>
