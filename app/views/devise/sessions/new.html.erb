@@ -24,3 +24,9 @@
   </div>
 </div>
 <%= render "devise/shared/links" %>
+
+<% if @from_checkout.present? %>
+  <div class="paddtop-20">
+    <%= link_to "Continue without Login", new_payment_path, class: "btn btn-danger" %>
+  </div>
+<% end %>

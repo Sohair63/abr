@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618061225) do
+ActiveRecord::Schema.define(version: 20160619130436) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "report_id",  limit: 4
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20160618061225) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "name",       limit: 60
+    t.string   "pay_by",     limit: 100
+    t.string   "phone",      limit: 20
+    t.decimal  "price",                  precision: 10
+    t.integer  "order_id",   limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
     t.string   "country",      limit: 255

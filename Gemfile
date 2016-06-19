@@ -47,6 +47,7 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'braintree'
 
 group :development do
   gem 'better_errors'

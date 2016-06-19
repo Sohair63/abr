@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def reset_order_session
+    session[:order_id] = nil
+  end
+
   protected
 
   def configure_devise_permitted_parameters
