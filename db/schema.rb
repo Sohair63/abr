@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619130436) do
+ActiveRecord::Schema.define(version: 20160620093231) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "report_id",  limit: 4
@@ -43,13 +43,18 @@ ActiveRecord::Schema.define(version: 20160619130436) do
   add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
-    t.string   "country",      limit: 255
-    t.string   "company_name", limit: 255
-    t.integer  "price",        limit: 4
+    t.string   "country",        limit: 255
+    t.string   "company_name",   limit: 255
+    t.integer  "price",          limit: 4
     t.boolean  "active"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.datetime "reported_at"
+    t.datetime "financial_year"
+    t.string   "region_number",  limit: 255
   end
+
+  add_index "reports", ["region_number"], name: "index_reports_on_region_number", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
