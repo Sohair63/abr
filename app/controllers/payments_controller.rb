@@ -14,9 +14,9 @@ class PaymentsController < ApplicationController
       if @result.success?
         @payment.save
         reset_order_session
-        redirect_to root_url, notice: "Congraulations! Your transaction has been successfully!"
+        redirect_to root_url, notice: 'Congraulations! Your transaction has been successfully!'
       else
-        flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
+        flash[:alert] = 'Something went wrong while processing your transaction. Please try again!'
         @client_token = generate_client_token
         render :new
       end
