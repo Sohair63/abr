@@ -1,1 +1,4 @@
-<%= button_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.total_price} )", cart_path, class: "btn btn-lg btn-primary", method: :get if current_order.order_items.present? %>
+<div>
+  <%= link_to cart_information(current_order), cart_path, class: "pull-right" if current_order.order_items.present? %>
+</div>
+<div class="clearfix"></div>

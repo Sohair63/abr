@@ -6,8 +6,13 @@ Abr::Application.routes.draw do
   resources :reports, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :payments, only: [:new, :create] do
+    collection do
+      get :checkout
+    end
+  end
 
-
+  post '/checkout' => 'carts#checkout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

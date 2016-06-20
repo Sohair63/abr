@@ -6,6 +6,7 @@
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -16,8 +17,8 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-xs-6 text-right">
-          <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+        <div class="text-right">
+          <div class="cart-text"><%= render 'layouts/cart_text' %></div>
         </div>
       </div>
 
