@@ -6,10 +6,19 @@
   </p>
 </h4>
 
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
+<table class="table table-bordered">
+  <thead>
+    <th class="text-center">Company Name</th>
+    <th class="text-center">Country</th>
+    <th class="text-center">Price</th>
+    <th class="text-center">Report Date</th>
+    <th class="text-center">Financial Year</th>
+    <th class="text-center">Region No.</th>
+    <th class="text-center">Action</th>
+  </thead>
+  <tbody>
     <% @reports.each do |report| %>
-      <%= render "report_row", report: report, order_item: @order_item %>
+      <tr><%= render 'report_row', report: report, order_item: @order_item %><tr>
     <% end %>
-  </div>
-</div>
+  </tbody>
+</table>
