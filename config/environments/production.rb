@@ -77,4 +77,15 @@ Abr::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.default_url_options = { host: 'accessbr.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => 587,
+    :address        => 'smtp.gmail.com',
+    :user_name      => ENV['SMTP_LOGIN'],
+    :password       => ENV['SMTP_PASSWORD'],
+    :domain         => 'accessbr.herokuapp.com',
+    :authentication => :plain,
+  }
 end
