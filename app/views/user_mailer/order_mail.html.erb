@@ -1,0 +1,20 @@
+  <h1>Thanks for your payment, <%= @payment.name %>!</h1>
+  <p>Your payment <%= @payment.price %> has been recevived against the following order.</p>
+
+  <h4>Your purchase includes.</h4>
+  <table style="border-color: 323232;" border="1">
+    <thead>
+      <th>Country</th>
+      <th>Company name</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+      <% @order.reports.each do |report| %>
+        <tr>
+          <td><%= report.country %></td>
+          <td><%= report.company_name %></td>
+          <td><%= report.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -11,8 +11,8 @@ class PaymentsController < ApplicationController
       @result = Braintree::Transaction.sale(
                 amount: current_order.total_price,
                 payment_method_nonce: params[:payment_method_nonce])
-      if @result.success?
-        @payment.save
+      if @result.success? && @payment.save!
+        UserMailer.order_mail(@payment).deliver
         reset_order_session
         redirect_to root_url, notice: 'Congraulations! Your transaction has been successfully!'
       else
