@@ -13,6 +13,7 @@ Abr::Application.routes.draw do
   end
 
   post '/checkout' => 'carts#checkout'
+  get '/:page' => 'static#display_page'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

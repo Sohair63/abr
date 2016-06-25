@@ -1,37 +1,43 @@
-<% if !@order_item.nil? && @order_item.errors.any? %>
-  <div class="alert alert-danger">
-    <ul>
-    <% @order_item.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if @order_items.size == 0 %>
-  <p class='text-center'>
-    There are no items in your shopping cart.  Please <%= link_to 'go back', root_path %> and add some items to your cart.
-  </p>
-<% else %>
-  <table class="table table-bordered">
-    <thead>
-      <th class='text-center'>Company Name</th>
-      <th class='text-center'>Country</th>
-      <th class='text-center'>Price</th>
-      <th class='text-center'>Report Date</th>
-      <th class='text-center'>Financial Year</th>
-      <th class='text-center'>Region No.</th>
-      <th class='text-center'>Action</th>
-    </thead>
-    <tbody>
-      <% @order_items.each do |order_item| %>
-        <tr>
-          <%= render 'carts/cart_row', report: order_item.report, order_item: order_item %>
-        </tr>
+<div class="container static-container">
+  <% if !@order_item.nil? && @order_item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @order_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
-    </tbody>
-  </table>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= link_to 'Checkout now', checkout_payments_path, class: 'btn btn-success check-out-btn' %>
-  <div class='clearfix'></div>
-<% end %>
+  <div class="cart-heading">
+    <h4>Items in Cart</h4>
+  </div>
+
+  <% if @order_items.size == 0 %>
+    <p class='text-center paddtop-20'>
+      There are no items in your shopping cart.  Please <%= link_to 'go back', root_path %> and add some items to your cart.
+    </p>
+  <% else %>
+    <table class="table table-bordered">
+      <thead>
+        <th class='text-center'>Company Name</th>
+        <th class='text-center'>Country</th>
+        <th class='text-center'>Price</th>
+        <th class='text-center'>Report Date</th>
+        <th class='text-center'>Financial Year</th>
+        <th class='text-center'>Region No.</th>
+        <th class='text-center'>Action</th>
+      </thead>
+      <tbody>
+        <% @order_items.each do |order_item| %>
+          <tr>
+            <%= render 'carts/cart_row', report: order_item.report, order_item: order_item %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Checkout now', checkout_payments_path, class: 'btn btn-success check-out-btn' %>
+    <div class='clearfix'></div>
+  <% end %>
+</div>
