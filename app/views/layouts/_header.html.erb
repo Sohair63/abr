@@ -20,40 +20,6 @@
         </div>
         <!-- .col-md-6 -->
         <div class="col-md-5">
-          <!-- Start Social Links -->
-          <ul class="social-list">
-            <li>
-              <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a class="google itl-tooltip" data-placement="bottom" title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a>
-            </li>
-            <li>
-              <a class="dribbble itl-tooltip" data-placement="bottom" title="Dribble" href="#"><i class="fa fa-dribbble"></i></a>
-            </li>
-            <li>
-              <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-            <li>
-              <a class="flickr itl-tooltip" data-placement="bottom" title="Flickr" href="#"><i class="fa fa-flickr"></i></a>
-            </li>
-            <li>
-              <a class="tumblr itl-tooltip" data-placement="bottom" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-            </li>
-            <li>
-              <a class="instgram itl-tooltip" data-placement="bottom" title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-              <a class="vimeo itl-tooltip" data-placement="bottom" title="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
-            </li>
-            <li>
-              <a class="skype itl-tooltip" data-placement="bottom" title="Skype" href="#"><i class="fa fa-skype"></i></a>
-            </li>
-          </ul>
-          <!-- End Social Links -->
         </div>
         <!-- .col-md-6 -->
       </div>
@@ -81,21 +47,15 @@
       <div class="navbar-collapse collapse">
         <!-- Start Navigation List -->
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Home", root_url, class: active_class(root_url) %>
-          </li>
-          <li>
-            <%= link_to "About Us", '/about', class: active_class('/about') %>
-          </li>
-          <li>
-            <%= link_to "Login", new_user_session_path, class: active_class(new_user_session_path) %>
-          </li>
-          <li>
-            <%= link_to "Register", new_user_registration_path, class: active_class(new_user_registration_path) %>
-          </li>
-          <li>
-            <%= link_to "Work With Us", new_user_registration_path, class: active_class(new_user_registration_path) %>
-          </li>
+          <li><%= link_to 'Home', root_url, class: active_class(root_url) %></li>
+          <li><%= link_to 'About Us', '/about', class: active_class('/about') %></li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: active_class(destroy_user_session_path) %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path, class: active_class(new_user_session_path) %></li>
+            <li><%= link_to 'Register', new_user_registration_path, class: active_class(new_user_registration_path) %></li>
+          <% end %>
         </ul>
         <!-- End Navigation List -->
       </div>
