@@ -3,11 +3,15 @@ module CartsHelper
     current_order.order_items.present? ? "" : "hidden"
   end
 
-  def hidden_class(order, report)
-    order.order_items.collect(&:report_id).uniq.include?(report.id) ? 'hidden' : ''
+  def add_to_cart(order, report)
+    ordered?(order, report) ? 'hidden' : ''
   end
 
-  def active_class(order, report)
-    order.order_items.collect(&:report_id).uniq.include?(report.id) ? '' : 'hidden'
+  def added_to_cart(order, report)
+    ordered?(order, report) ? '' : 'hidden'
+  end
+
+  def ordered?(order, report)
+    order.order_items.collect(&:report_id).uniq.include?(report.id)
   end
 end
