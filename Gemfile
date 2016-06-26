@@ -45,6 +45,8 @@ gem 'braintree'
 gem "font-awesome-rails"
 gem 'devise-bootstrap-views'
 gem 'jquery-validation-rails'
+gem 'activeadmin', github: 'activeadmin'
+gem 'country_select'
 
 group :development do
   gem 'better_errors'
