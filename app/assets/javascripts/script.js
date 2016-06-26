@@ -22,7 +22,8 @@ $(document).ready(function ($) {
 	    headerEle();
 	});
 	
-	$("#report-search").validate();    
+	$("#report-search").validate();
+	$("#new_payment").validate();  
 
     /*---------------------------------------------------*/
     /* Progress Bar

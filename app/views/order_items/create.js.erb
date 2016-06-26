@@ -1,7 +1,14 @@
 <% if @order.errors.any? || @order_item.errors.any? %>
-  alert("not valid.")
+  alert('Order is not valid.')
 <% else %>
   $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
+
+  <% if current_order.order_items.present? %>
+    $('.go-to-cart-btn').removeClass('hidden');
+  <% else %>
+    $('.go-to-cart-btn').addClass('hidden');
+  <% end %>
+
   <% @order.order_items.each do |item| %>
     $('#<%= "btn-order-#{item.report_id}" %>').addClass('hidden')
     $('#<%= "link-order-#{item.report_id}" %>').removeClass('hidden')
