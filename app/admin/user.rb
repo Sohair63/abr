@@ -1,17 +1,19 @@
 ActiveAdmin.register User do
+  filter :username
+  filter :name
+  filter :email
+  filter :website
+  filter :role
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-
-
+  index do
+    id_column
+    column :username
+    column :name
+    column :email
+    column :company_name
+    column :website
+    column :telephone_number
+    column :role
+    actions
+  end
 end
