@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AccessBR</title>
-    <%= stylesheet_link_tag 'application', media: 'all',
-                                           'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <title>AssessBR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>AssessBR</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
-
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
   </head>
-  <body>
-    <%= render 'shared/navigation_bar' %>
-
-    <div class="container">
-      <%= render 'layouts/flash' %>
-
-      <div class="row">
-        <div class="text-right">
-          <div class="cart-text"><%= render 'layouts/cart_text' %></div>
-        </div>
-      </div>
-
-      <hr>
-
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+<body>
+  <div id="loader">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
     </div>
-  </body>
+  </div>
+  <div id="container">
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+</body>
 </html>

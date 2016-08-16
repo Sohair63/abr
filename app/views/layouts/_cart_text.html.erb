@@ -1,4 +1,1 @@
-<div>
-  <%= link_to cart_information(current_order), cart_path, class: "pull-right" if current_order.order_items.present? %>
-</div>
-<div class="clearfix"></div>
+  <%= link_to "#{current_order.order_items.size} <i class='fa fa-shopping-cart' aria-hidden='true'></i>".html_safe, cart_path, class: "pull-right" %>

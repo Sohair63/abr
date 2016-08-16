@@ -1,51 +1,56 @@
-<div>
-  <%= link_to '<< back to checkout', checkout_payments_path %>
-</div>
+<div class="container" id="payment-methods">
+  <div class="row">
+    <div class="col-md-8">
+      <div>
+        <%= link_to '<< back to checkout', checkout_payments_path %>
+      </div>
 
-<h3>Registration For Credit Card Payment</h3>
+      <h3 class="paddtop-20">Registration For Credit Card Payment</h3>
 
-<p>
-  Fill the following Form for credit report. On filling the form you will be allowed to purchase the credit report to view and we will email it to you instanly.
-</p>
+      <p>
+        Fill the following Form for credit report. On filling the form you will be allowed to purchase the credit report to view and we will email it to you instanly.
+      </p>
 
-<%= form_for(@payment) do |f| %>
-  <% if @payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-      <ul>
-      <% @payment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <%= form_for(@payment, id: "new-payment") do |f| %>
+        <% if @payment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+            <ul>
+            <% @payment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group paddtop-20">
+          <%= f.label :name %>
+          <%= f.text_field :name, class:'form-control', placeholder:'Name', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :pay_by %>
+          <%= f.text_field :pay_by, class:'form-control', placeholder:'Email Address', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class:'form-control', placeholder:'Phone Number', required: true %>
+        </div>
+
+        <%= f.hidden_field :price, value: current_order.total_price %>
+        <hr>
+
+        <h4>Please enter payment information</h4>
+
+        <div id="payment-form" class="paddtop-20"></div>
+        <div class="text-center">
+          <%= f.submit "Pay #{number_to_currency current_order.total_price}", class: 'payment-submit hidden btn btn-success' %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="form-group paddtop-20">
-    <%= f.label :name %>
-    <%= f.text_field :name, class:'form-control', placeholder:'Name', required: true %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :pay_by %>
-    <%= f.text_field :pay_by, class:'form-control', placeholder:'Email Address', required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :phone %>
-    <%= f.text_field :phone, class:'form-control', placeholder:'Phone Number', required: true %>
-  </div>
-
-  <%= f.hidden_field :price, value: current_order.total_price %>
-  <hr>
-
-  <h4>Please enter payment information</h4>
-
-  <div id="payment-form" class="paddtop-20"></div>
-  <div class="text-center">
-    <%= f.submit "Pay #{number_to_currency current_order.total_price}", class: 'payment-submit hidden btn btn-success' %>
-  </div>
-<% end %>
-
+</div>
 <script>
   $(document).ready(function() {
     var clientToken = "<%= @client_token %>"

@@ -1,4 +1,6 @@
 Abr::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'static#welcome'
 
   devise_for :users
@@ -13,6 +15,7 @@ Abr::Application.routes.draw do
   end
 
   post '/checkout' => 'carts#checkout'
+  get '/:page' => 'static#display_page'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

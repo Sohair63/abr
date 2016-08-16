@@ -1,65 +1,78 @@
-<%= bootstrap_devise_error_messages! %>
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_up', :default => "Sign up") %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, class: "form-control" %>
-      </div>
+<div class="container static-container">
+  <%= bootstrap_devise_error_messages! %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="login-box well">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+          <legend>Register</legend>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, autofocus: true, class: "form-control" %>
+            </div>
 
-      <div class="form-group">
-        <%= f.label :username %>
-        <%= f.text_field :username, autofocus: true, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
-      </div>
+            <div class="form-group">
+              <%= f.label :username %>
+              <%= f.text_field :username, autofocus: true, class: "form-control" %>
+            </div>
 
-      <div class="form-group">
-        <%= f.label :telephone_number %>
-        <%= f.text_field :telephone_number, autofocus: true, class: "form-control" %>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :telephone_number %>
+              <%= f.text_field :telephone_number, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :mobile_number %>
+              <%= f.text_field :mobile_number, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :country %>
+              <%= f.text_field :country, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :address %>
+              <%= f.text_field :address, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :company_name %>
+              <%= f.text_field :company_name, autofocus: true, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :website %>
+              <%= f.text_field :website, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-default btn-login-submit btn-block m-t-md" %>
+                </div>
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :mobile_number %>
-        <%= f.text_field :mobile_number, autofocus: true, class: "form-control" %>
-      </div>
-
-
-      <div class="form-group">
-        <%= f.label :country %>
-        <%= f.text_field :country, autofocus: true, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :address %>
-        <%= f.text_field :address, autofocus: true, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :company_name %>
-        <%= f.text_field :company_name, autofocus: true, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :website %>
-        <%= f.text_field :website, autofocus: true, class: "form-control" %>
-      </div>
-
-      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
-    <% end %>
+    </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>

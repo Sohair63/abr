@@ -7,7 +7,7 @@
 <td class='text-center'>
   <%= form_for order_item, remote: true do |f| %>
     <%= f.hidden_field :report_id, value: report.id %>
-    <%= link_to 'Added to Cart', '#', class: "btn btn-success #{active_class(current_order, report)}", id: "link-order-#{report.id}" %>
-    <%= f.submit 'Add to Cart', class: "btn btn-primary #{hidden_class(current_order, report)}", id: "btn-order-#{report.id}" %>
+    <%= link_to 'Added to Cart', '#', class: "btn btn-success #{added_to_cart(current_order, report)}", id: "link-order-#{report.id}" %>
+    <%= f.submit 'Add to Cart', class: "btn btn-primary #{add_to_cart(current_order, report)}", id: "btn-order-#{report.id}" %>
   <% end %>
 </td>

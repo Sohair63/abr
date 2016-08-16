@@ -10,3 +10,4 @@ Report.delete_all
 Report.create! id: 1, country: "Pakistan", company_name: 'test', price: 100, active: true
 Report.create! id: 2, country: "Pakistan", company_name: 'test', price: 100, active: true
 Report.create! id: 3, country: "Pakistan", company_name: 'test', price: 100, active: true
+AdminUser.create!(email: 'admin@assessbr.com', password: 'password', password_confirmation: 'password')

@@ -1,32 +1,38 @@
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_in', :default => "Sign in") %></h4>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
-      <div class="form-group">
-        <%= f.label :login %>
-        <%= f.text_field :login, autofocus: true, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-      </div>
-      <% if devise_mapping.rememberable? %>
-        <div class="checkbox">
-          <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %>remember me
+<div class="container static-container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="login-box well">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
+          <legend>Sign In</legend>
+          <div class="form-group">
+            <%= f.label :login %>
+            <%= f.text_field :login, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="checkbox">
+              <%= f.label :remember_me do %>
+                <%= f.check_box :remember_me %>remember me
+              <% end %>
+            </div>
           <% end %>
+          <div class="form-group">
+            <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-default btn-login-submit btn-block m-t-md" %>
+          </div>
+          <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <% if @from_checkout.present? %>
+        <h5>If you don't want to buy as a guest then you can click here</h5>
+        <div class="paddtop-20">
+          <%= link_to "Continue without Login", new_payment_path, class: "btn btn-danger" %>
         </div>
       <% end %>
-      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
-    <% end %>
+    </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>
-
-<% if @from_checkout.present? %>
-  <div class="paddtop-20">
-    <%= link_to "Continue without Login", new_payment_path, class: "btn btn-danger" %>
-  </div>
-<% end %>

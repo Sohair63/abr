@@ -1,17 +1,19 @@
-<%= form_tag(reports_path, method: :get) do %>
-  <div class="row">
-    <div class="col-md-7 clearfix">
-      <div class="search-area-division search-area-division-input">
-        <%= select_tag :country, options_from_collection_for_select(CountryName::COUNTRIES, :value_name, :display_name, params[:country]), { prompt: '-- Select Country --', class: 'form-control'} %>
+<section class="section search-section">
+  <div class="col-md-12">
+    <%= form_tag(reports_path, method: :get, id: "report-search") do %>
+      <div class="col-md-7">
+        <div class="form-group">
+          <%= select_tag :country, options_from_collection_for_select(CountryName::COUNTRIES, :value_name, :display_name, params[:country]), { prompt: '-- Select Country --', class: 'form-control', required: true} %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4 clearfix">
-      <div class="search-area-division search-area-division-location">
-        <%= text_field_tag :company_name, params[:company_name], placeholder: 'Company Name / Regn no.', class: 'form-control' %>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= text_field_tag :company_name, params[:company_name], placeholder: 'Company Name', class: 'form-control' %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-1">
-      <%= submit_tag 'Search', class: "btn btn-danger" %>
-    </div>
+      <div class="col-md-1">
+        <%= submit_tag 'Search', class: "btn btn-danger" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>

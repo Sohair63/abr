@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= braintree.min.js
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require twitter/bootstrap
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .

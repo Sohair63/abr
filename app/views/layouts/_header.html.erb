@@ -1,0 +1,87 @@
+<!-- Start Header Section -->
+<div class="hidden-header"></div>
+<header class="clearfix">
+
+  <!-- Start Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <!-- Start Contact Info -->
+          <ul class="contact-details">
+            <li><a href="#"><i class="fa fa-map-marker"></i> Building-54/A, Lahore, Pakistan</a>
+            </li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i> info@assessbr.com</a>
+            </li>
+            <li><a href="#"><i class="fa fa-phone"></i> +92 345 678 000</a>
+            </li>
+          </ul>
+          <!-- End Contact Info -->
+        </div>
+        <!-- .col-md-6 -->
+        <div class="col-md-5">
+        </div>
+        <!-- .col-md-6 -->
+      </div>
+      <!-- .row -->
+    </div>
+    <!-- .container -->
+  </div>
+  <!-- .top-bar -->
+  <!-- End Top Bar -->
+
+
+  <!-- Start  Logo & Naviagtion  -->
+  <div class="navbar navbar-default navbar-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- Stat Toggle Nav Link For Mobiles -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <!-- End Toggle Nav Link For Mobiles -->
+        <%= link_to root_url, class: "navbar-brand" do %>
+          <%= image_tag "logo" %>
+        <% end %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <!-- Start Navigation List -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Home', root_url, class: active_class(root_url) %></li>
+          <li><%= link_to 'About Us', '/about', class: active_class('/about') %></li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: active_class(destroy_user_session_path) %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path, class: active_class(new_user_session_path) %></li>
+            <li><%= link_to 'Register', new_user_registration_path, class: active_class(new_user_registration_path) %></li>
+            <li><%= link_to 'Work With Us', new_user_registration_path, class: active_class(new_user_registration_path) %></li>
+          <% end %>
+        </ul>
+        <!-- End Navigation List -->
+      </div>
+      <div class="text-right pull-right">
+        <div class="cart-text"><%= render 'layouts/cart_text' %></div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Start -->
+    <ul class="wpb-mobile-menu">
+      <li><%= link_to 'Home', root_url, class: active_class(root_url) %></li>
+      <li><%= link_to 'About Us', '/about', class: active_class('/about') %></li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: active_class(destroy_user_session_path) %></li>
+      <% else %>
+        <li><%= link_to 'Login', new_user_session_path, class: active_class(new_user_session_path) %></li>
+        <li><%= link_to 'Register', new_user_registration_path, class: active_class(new_user_registration_path) %></li>
+        <li><%= link_to 'Work With Us', new_user_registration_path, class: active_class(new_user_registration_path) %></li>
+      <% end %>
+    </ul>
+    <!-- Mobile Menu End -->
+
+  </div>
+  <!-- End Header Logo & Naviagtion -->
+
+</header>
+<!-- End Header Section -->

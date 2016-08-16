@@ -1,11 +1,76 @@
-<footer class="footer">
-  <small>
-    <p>&copy; abr.com <%= Time.now.year %></p>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   '#' %></li>
-      <li><%= link_to "Contact", '#' %></li>
-    </ul>
-  </nav>
+<!-- Start Footer Section -->
+<footer>
+  <div class="container">
+    <div class="row footer-widgets">
+
+
+      <!-- Start Subscribe & Social Links Widget -->
+      <div class="col-md-3 col-xs-12">
+        <div class="footer-widget mail-subscribe-widget">
+          <h4>Get in touch<span class="head-line"></span></h4>
+          <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
+          <form class="subscribe">
+            <input type="text" placeholder="mail@example.com">
+            <input type="submit" class="btn-system" value="Send">
+          </form>
+        </div>
+        <div class="footer-widget social-widget">
+        </div>
+      </div>
+      <!-- .col-md-3 -->
+      <!-- End Subscribe & Social Links Widget -->
+
+      <div class="col-md-3 col-xs-12">
+      </div>
+      <!-- .col-md-3 -->
+
+      <div class="col-md-3 col-xs-12">
+      </div>
+      <!-- .col-md-3 -->
+
+
+      <!-- Start Contact Widget -->
+      <div class="col-md-3 col-xs-12">
+        <div class="footer-widget contact-widget">
+          <h4><%= image_tag "logo", class: "img-responsive" %></h4>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          <ul>
+            <li><span>Phone Number:</span> +92 234 567 890</li>
+            <li><span>Email:</span> company@assessbr.com</li>
+            <li><span>Website:</span> www.assessbr.com</li>
+          </ul>
+        </div>
+      </div>
+      <!-- .col-md-3 -->
+      <!-- End Contact Widget -->
+
+
+    </div>
+    <!-- .row -->
+
+    <!-- Start Copyright -->
+    <div class="copyright-section">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2016 AssessBR - All Rights Reserved <a href="#">AssessBR</a> </p>
+        </div>
+        <!-- .col-md-6 -->
+        <!--<div class="col-md-6">
+          <ul class="footer-nav">
+            <li><a href="#">Sitemap</a>
+            </li>
+            <li><a href="#">Privacy Policy</a>
+            </li>
+            <li><a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>-->
+        <!-- .col-md-6 -->
+      </div>
+      <!-- .row -->
+    </div>
+    <!-- End Copyright -->
+
+  </div>
 </footer>
+<!-- End Footer Section -->

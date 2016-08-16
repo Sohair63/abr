@@ -7,5 +7,5 @@
 <td class='text-center'><%= report.financial_year.try(:year) %></td>
 <td class='text-center'><%= report.region_number %></td>
 <td class='text-center'>
-  <%= link_to 'Delete', order_item, { data: { confirm: 'Are you sure you wish to delete the report from your cart?' }, method: :delete, remote: true, class: 'btn btn-danger' } %>
+  <%= link_to 'Delete', order_item, { data: { confirm: 'Are you sure you wish to delete the report from your cart?' }, method: :delete, remote: true, class: 'btn btn-system' } %>
 </td>
